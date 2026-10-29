@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agaleasExamen.Login"
+             Title="Login">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+
+            <Image Source="gym.png"
+                   HeightRequest="120"
+                   HorizontalOptions="Center" />
+
+            <Label Text="GIMNASIO UISRAEL - LOGIN"
+                   TextColor="Purple"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center" />
+
+            <Grid RowDefinitions="Auto, Auto, Auto"
+                  ColumnDefinitions="Auto, *"
+                  RowSpacing="10"
+                  ColumnSpacing="10">
+
+                <Label Grid.Row="0" Grid.Column="0"
+                       Text="Usuario:"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+                <Entry x:Name="txtUsuario"
+                       Grid.Row="0" Grid.Column="1"
+                       Placeholder="Ingrese usuario" />
+
+                <Label Grid.Row="1" Grid.Column="0"
+                       Text="Contraseña:"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+                <Entry x:Name="txtPassword"
+                       Grid.Row="1" Grid.Column="1"
+                       Placeholder="Ingrese contraseña"
+                       IsPassword="True" />
+
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                        Text="Iniciar sesión"
+                        Style="{StaticResource EstiloBotonGlobal}"
+                        Clicked="OnIniciarSesionClicked" />
+            </Grid>
+
+            <Button Text="Acerca de"
+                    Style="{StaticResource EstiloBotonGlobal}"
+                    BackgroundColor="#1565C0"
+                    Clicked="OnAcercaDeClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agaleasExamen.Resumen"
+             Title="Resumen">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="12" Padding="20">
+
+            <Label x:Name="lblUsuarioConectado"
+                   Style="{StaticResource EstiloUsuarioConectado}" />
+
+            <Label Text="RESUMEN"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="Blue"
+                   HorizontalOptions="Center" />
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+                  ColumnDefinitions="*, *"
+                  RowSpacing="10"
+                  ColumnSpacing="10">
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Nombre:" FontAttributes="Bold" />
+                <Label x:Name="lblNombre" Grid.Row="0" Grid.Column="1" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Apellido:" FontAttributes="Bold" />
+                <Label x:Name="lblApellido" Grid.Row="1" Grid.Column="1" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Edad:" FontAttributes="Bold" />
+                <Label x:Name="lblEdad" Grid.Row="2" Grid.Column="1" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Fecha de inicio:" FontAttributes="Bold" />
+                <Label x:Name="lblFecha" Grid.Row="3" Grid.Column="1" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Plan:" FontAttributes="Bold" />
+                <Label x:Name="lblPlan" Grid.Row="4" Grid.Column="1" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Casillero:" FontAttributes="Bold" />
+                <Label x:Name="lblCasillero" Grid.Row="5" Grid.Column="1" />
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Monto Inicial:" FontAttributes="Bold" />
+                <Label x:Name="lblMontoInicial" Grid.Row="6" Grid.Column="1" />
+
+                <Label Grid.Row="7" Grid.Column="0" Text="Pago mensual:" FontAttributes="Bold" />
+                <Label x:Name="lblPagoMensual" Grid.Row="7" Grid.Column="1" />
+
+                <Label Grid.Row="8" Grid.Column="0" Text="Pago Total:" FontAttributes="Bold" />
+                <Label x:Name="lblPagoTotal" Grid.Row="8" Grid.Column="1" FontAttributes="Bold" TextColor="Purple" />
+            </Grid>
+
+            <Button Text="Exportar a TXT"
+                    Style="{StaticResource EstiloBotonGlobal}"
+                    BackgroundColor="#2E7D32"
+                    Clicked="OnExportarTxtClicked" />
+
+            <Button Text="Nuevo registro"
+                    Style="{StaticResource EstiloBotonGlobal}"
+                    BackgroundColor="#1565C0"
+                    Clicked="OnNuevoRegistroClicked" />
+
+            <Button Text="Cerrar sesión"
+                    Style="{StaticResource EstiloBotonGlobal}"
+                    BackgroundColor="#C62828"
+                    Clicked="OnCerrarSesionClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agaleasExamen.Registro"
+             Title="Registro">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="12" Padding="20">
+
+            <Label x:Name="lblUsuarioConectado"
+                   Style="{StaticResource EstiloUsuarioConectado}" />
+
+            <Label Text="REGISTRO"
+                   TextColor="Blue"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center" />
+
+            <Grid RowDefinitions="Auto, Auto"
+                  ColumnDefinitions="*, *, *"
+                  RowSpacing="8"
+                  ColumnSpacing="8">
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Nombre" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Apellido" FontAttributes="Bold" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Edad" FontAttributes="Bold" />
+
+                <Entry x:Name="txtNombre"
+                       Grid.Row="1" Grid.Column="0"
+                       Placeholder="Ingresar Nombre"
+                       TextChanged="ValidarSoloLetras" />
+
+                <Entry x:Name="txtApellido"
+                       Grid.Row="1" Grid.Column="1"
+                       Placeholder="Ingresar Apellido"
+                       TextChanged="ValidarSoloLetras" />
+
+                <Entry x:Name="txtEdad"
+                       Grid.Row="1" Grid.Column="2"
+                       Placeholder="Edad (>=16)"
+                       Keyboard="Numeric"
+                       MaxLength="3"
+                       TextChanged="ValidarSoloEnteros" />
+            </Grid>
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+                  ColumnDefinitions="*, *"
+                  RowSpacing="10"
+                  ColumnSpacing="10">
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Fecha de inicio:" VerticalOptions="Center" FontAttributes="Bold" />
+                <DatePicker x:Name="dpFechaInicio"
+                            Grid.Row="0" Grid.Column="1"
+                            Format="dd/MM/yyyy" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Plan:" VerticalOptions="Center" FontAttributes="Bold" />
+                <Picker x:Name="pkPlan"
+                        Grid.Row="1" Grid.Column="1"
+                        Title="Seleccione un Plan">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Musculación</x:String>
+                            <x:String>Cardio</x:String>
+                            <x:String>Crossfit</x:String>
+                            <x:String>Full</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Casillero:" VerticalOptions="Center" FontAttributes="Bold" />
+                <Switch x:Name="swCasillero"
+                        Grid.Row="2" Grid.Column="1"
+                        HorizontalOptions="Start" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Monto Inicial:" VerticalOptions="Center" FontAttributes="Bold" />
+                <Entry x:Name="txtMontoInicial"
+                       Grid.Row="3" Grid.Column="1"
+                       Placeholder="120 - 600"
+                       Keyboard="Numeric" />
+
+                <Button Grid.Row="4" Grid.Column="0"
+                        Text="Calcular Pago mensual"
+                        Style="{StaticResource EstiloBotonGlobal}"
+                        Clicked="OnCalcularPagoClicked" />
+
+                <Entry x:Name="txtPagoMensual"
+                       Grid.Row="4" Grid.Column="1"
+                       Placeholder="Pago mensual"
+                       IsEnabled="False" />
+            </Grid>
+
+            <Button Text="Ver Resumen"
+                    Style="{StaticResource EstiloBotonGlobal}"
+                    BackgroundColor="#00695C"
+                    Clicked="OnVerResumenClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
